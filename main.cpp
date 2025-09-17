@@ -1,19 +1,25 @@
 
 #include <iostream>
-
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
 
 
 int main()
 {
+	std::ifstream file("Lookup_Table.csv");
+	std::string line;
+	std::vector<std::string> lines;
 
-	unsigned int accumulator = 0;
-	for (int i = 0; i < 30; i++)
-	{
-		accumulator += std::pow(2, i);
-		std::cout << (unsigned)accumulator << "\n";
-	}
+    while (std::getline(file, line))
+    {
+        lines.push_back(line);
+    }
 
-	std::cout << "Hello World!\n";
-	return 0;
+    for (std::string& line : lines)
+    {
+        std::cout << line << "\n";
+    }
 }
 
